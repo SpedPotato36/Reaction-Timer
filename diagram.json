@@ -1,0 +1,48 @@
+{
+  "version": 1,
+  "author": "Ishaan Dan",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "wokwi-pi-pico",
+      "id": "pico",
+      "top": 16.05,
+      "left": -150,
+      "attrs": { "env": "micropython-20241129-v1.24.1" }
+    },
+    { "type": "wokwi-lcd1602", "id": "lcd1", "top": 16, "left": -4, "attrs": { "pins": "i2c" } },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn1",
+      "top": 54.2,
+      "left": -268.8,
+      "attrs": { "color": "green", "xray": "1", "bounce": "1" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": 140.4,
+      "left": -274.6,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 119.15,
+      "left": -230.4,
+      "attrs": { "value": "1000" }
+    }
+  ],
+  "connections": [
+    [ "lcd1:GND", "pico:GND.5", "black", [ "h0" ] ],
+    [ "lcd1:VCC", "pico:3V3", "red", [ "h0" ] ],
+    [ "lcd1:SDA", "pico:GP0", "green", [ "h0" ] ],
+    [ "lcd1:SCL", "pico:GP1", "green", [ "h0" ] ],
+    [ "btn1:2.l", "pico:GP14", "green", [ "h-9.6", "v-95.8" ] ],
+    [ "btn1:1.r", "pico:3V3", "green", [ "v0" ] ],
+    [ "led1:A", "r1:1", "green", [ "v0" ] ],
+    [ "r1:2", "pico:GP15", "green", [ "v0" ] ],
+    [ "led1:C", "pico:GND.4", "green", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
